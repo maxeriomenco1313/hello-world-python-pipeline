@@ -9,7 +9,7 @@ on:
         default: '0.0.1' 
 
 jobs:
-  login:
+  login-build-push:
     runs-on: ubuntu-latest
     steps:
       -
