@@ -1,8 +1,12 @@
 name: ci
 
 on:
-  push:
-    branches: main
+  workflow_dispatch:
+    inputs:
+      docker_tag:
+        description: 'Docker image tag'     
+        required: true
+        default: '0.0.1' 
 
 jobs:
   login:
@@ -14,3 +18,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: iliusa77/hello-world-python:${{ inputs.docker_tag }}
