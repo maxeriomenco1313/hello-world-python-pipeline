@@ -32,4 +32,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           registry: docker.io
           image: iliusa77/hello-world-python:${{ inputs.docker_tag }}
-          run: nohup python3 ./app.py & && curl http://127.0.0.1:8080
+          run: nohup python3 ./app.py & 
+      - 
+        name: Curl to hello-world-python
+        run: curl http://172.17.0.3:8080
