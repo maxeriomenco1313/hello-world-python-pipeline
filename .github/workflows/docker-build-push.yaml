@@ -32,4 +32,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           registry: docker.io
           image: iliusa77/hello-world-python:${{ inputs.docker_tag }}
-          run: curl localhost:8080
+          run: ls -1 && python3 ./app.py
