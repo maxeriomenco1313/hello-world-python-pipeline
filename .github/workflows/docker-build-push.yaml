@@ -24,15 +24,12 @@ jobs:
         with:
           push: true
           tags: iliusa77/hello-world-python:${{ inputs.docker_tag }}
-      - 
-        name: Run
-        uses: addnab/docker-run-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          registry: docker.io
-          image: iliusa77/hello-world-python:${{ inputs.docker_tag }}
-          run: nohup python3 ./app.py & 
-      - 
-        name: Curl to hello-world-python
-        run: curl http://172.17.0.3:8080
+      # - 
+      #   name: Run
+      #   uses: addnab/docker-run-action@v3
+      #   with:
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+      #     registry: docker.io
+      #     image: iliusa77/hello-world-python:${{ inputs.docker_tag }}
+      #     run: nohup python3 ./app.py & 
